@@ -39,7 +39,7 @@ jobs:
         run: npm ci --legacy-peer-deps
 
       - name: Build
-        run: npm run build -- --base=/Portfolio/
+        run: npm run build
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -48,6 +48,11 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: './dist'
+
+      - name: Debug - List uploaded files
+        run: |
+          echo "Listing dist folder contents:"
+          ls -la dist/
 
       - name: Deploy to GitHub Pages
         id: deployment
