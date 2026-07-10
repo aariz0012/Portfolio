@@ -6,14 +6,22 @@ const Hero = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const videoRef = useRef(null);
 
-  const toggleVideo = () => {
+  const toggleVideo = async () => {
     if (videoRef.current) {
-      if (isPlaying) {
-        videoRef.current.pause();
-      } else {
-        videoRef.current.play();
+      try {
+        if (isPlaying) {
+          videoRef.current.pause();
+          setIsPlaying(false);
+        } else {
+          await videoRef.current.play();
+          setIsPlaying(true);
+        }
+      } catch (error) {
+        if (error.name !== 'AbortError') {
+          console.error('Video playback error:', error);
+        }
+        setIsPlaying(false);
       }
-      setIsPlaying(!isPlaying);
     }
   };
 
