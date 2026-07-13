@@ -14,9 +14,9 @@ const Contact = () => {
 
   // EmailJS Configuration
   // REPLACE THESE WITH YOUR ACTUAL EMAILJS CREDENTIALS
-  const EMAILJS_SERVICE_ID = 'YOUR_SERVICE_ID'; // Get from EmailJS dashboard
-  const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID'; // Get from EmailJS dashboard
-  const EMAILJS_PUBLIC_KEY = 'YOUR_PUBLIC_KEY'; // Get from EmailJS dashboard
+  const EMAILJS_SERVICE_ID = 'service_j9vrjsw'; // Get from EmailJS dashboard
+  const EMAILJS_TEMPLATE_ID = 'template_18r9c32'; // Get from EmailJS dashboard
+  const EMAILJS_PUBLIC_KEY = 'cp2mX04uEcaScJkaW'; // Get from EmailJS dashboard
 
   const handleChange = (e) => {
     setFormData({
