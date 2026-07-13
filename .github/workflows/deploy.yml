@@ -39,7 +39,7 @@ jobs:
         run: npm ci --legacy-peer-deps
 
       - name: Build
-        run: npm run build
+        run: npm run build -- --base=/Portfolio/
 
       - name: Copy public assets to dist
         run: |

@@ -1,44 +1,17 @@
-import React, { useState, useRef } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import { Play, Pause, ArrowDown } from 'lucide-react';
+import { ArrowDown } from 'lucide-react';
 
 const Hero = () => {
-  const [isPlaying, setIsPlaying] = useState(false);
-  const videoRef = useRef(null);
-
-  const toggleVideo = async () => {
-    if (videoRef.current) {
-      try {
-        if (isPlaying) {
-          videoRef.current.pause();
-          setIsPlaying(false);
-        } else {
-          await videoRef.current.play();
-          setIsPlaying(true);
-        }
-      } catch (error) {
-        if (error.name !== 'AbortError') {
-          console.error('Video playback error:', error);
-        }
-        setIsPlaying(false);
-      }
-    }
-  };
-
   return (
     <section id="home" className="relative h-screen overflow-hidden">
-      {/* Video Background */}
+      {/* Background Image */}
       <div className="absolute inset-0">
-        <video
-          ref={videoRef}
+        <img
+          src="/hero-poster.jpg"
+          alt="Background"
           className="w-full h-full object-cover"
-          muted
-          loop
-          playsInline
-          poster="/hero-poster.jpg"
-        >
-          <source src="/hero-video.mp4" type="video/mp4" />
-        </video>
+        />
         {/* Dark Overlay */}
         <div className="absolute inset-0 bg-black/70" />
       </div>
@@ -98,26 +71,14 @@ const Hero = () => {
             </motion.div>
           </motion.div>
 
-          {/* Right Side - Play Button */}
+          {/* Right Side - Empty for balance */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.8, duration: 0.8 }}
             className="flex justify-center lg:justify-end"
           >
-            <motion.button
-              onClick={toggleVideo}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-              className="relative w-40 h-40 md:w-52 md:h-52 rounded-full bg-white/10 backdrop-blur-md border-2 border-white/30 flex items-center justify-center group hover:shadow-[0_0_60px_rgba(255,42,42,0.5)] transition-all duration-300"
-            >
-              <div className="text-white">
-                {isPlaying ? <Pause size={40} /> : <Play size={40} className="ml-2" />}
-              </div>
-              <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 text-white/80 text-sm font-medium tracking-widest uppercase">
-                {isPlaying ? 'PAUSE' : 'PLAY REEL'}
-              </div>
-            </motion.button>
+            {/* Play button removed */}
           </motion.div>
         </div>
       </div>
